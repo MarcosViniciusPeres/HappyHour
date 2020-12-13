@@ -24,6 +24,8 @@
 % 7. Quem gosta da cerveja alema é o Fabio ou o amigo de 24 anos.
 % 8. O amigo que bebeu 4 chopes não tem 24 anos.
 
+% Pode-se verificar a solução consultando: desafio(Amigo1, Amigo2, Amigo3, Amigo4).
+
 desafio(Amigo1, Amigo2, Amigo3, Amigo4) :- 
     % existe um HappyHour com quatro amigos.
     HappyHour = [Amigo1, Amigo2, Amigo3, Amigo4],
@@ -105,6 +107,11 @@ test(mais_chopes_test_2, I = 20) :-
 test(mais_chopes_test_3, fail) :-
     A = amigo(marcos, _, 10, _),
     B = amigo(vinicius, _, 15, _),
+    mais_chopes([A, B], A, B).
+
+test(mais_chopes_test_4, nondet) :-
+    A = amigo(_, _, _, _),
+    B = amigo(_, _, _, _),
     mais_chopes([A, B], A, B).
 
 :- end_tests(mais_chopes).
